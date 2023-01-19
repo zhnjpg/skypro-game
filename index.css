@@ -1,33 +1,37 @@
+/* stylelint-disable prettier/prettier */
 * {
     margin: 0;
     padding: 0;
 }
 @font-face {
-    font-family: "Stratos";
+    font-family: Stratos;
     font-style: normal;
     font-weight: 400;
-    src: local("Stratos"),
-         url("/Web Fonts/stratosskyengweb-black") format("woff2"),
-         url("/Web Fonts/stratosskyengweb-black") format("woff");
-  }
+    src: local('Stratos'),
+        url('/Web Fonts/stratosskyengweb-black') format('woff2'),
+        url('/Web Fonts/stratosskyengweb-black') format('woff');
+}
 
-  body {
-    font-family: "Stratos", sans-serif;
+body {
+    font-family: Stratos, sans-serif;
     background-color: #004980;
+}
+
+.body_center {
     display: flex;
     justify-content: center;
     align-content: center;
-  }
+}
 
 .main {
-    background-color: #C2F5FF;
-height: 459px;
-width: 480px;
-border-radius: 12px;
-display: flex;
-align-items: center;
-flex-direction: column;
-margin-top: 158px;
+    background-color: #c2f5ff;
+    height: 459px;
+    width: 480px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 158px;
 }
 
 .h1 {
@@ -48,11 +52,11 @@ margin-top: 158px;
     box-sizing: border-box;
     width: 98px;
     height: 98px;
-    background-color: #FFFFFF;
+    background-color: #fff;
     border-radius: 12px;
     border: none;
     margin-top: 48px;
-    color: #0080C1;
+    color: #0080c1;
     font-weight: 97px;
     font-size: 64px;
     line-height: 72px;
@@ -60,14 +64,87 @@ margin-top: 158px;
 
 .button_start {
     box-sizing: border-box;
-background-color: #7AC100;
-width: 246px;
-height: 50px;
-border-radius: 12px;
-border: none;
-color: #FFFFFF;
-font-weight: 400;
-font-size: 24px;
-line-height: 32px;
-margin-top: 67px;
+    background-color: #7ac100;
+    width: 246px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    color: #fff;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    margin-top: 67px;
+}
+
+.screen2_hat {
+    display: flex;
+    justify-content: space-between;
+}
+
+.timer_name {
+    font-weight: 28px;
+    font-size: 16px;
+    line-height: 32px;
+    color: #fff;
+}
+
+.timer_name_div {
+    display: flex;
+}
+
+.min {
+    margin-top: 22px;
+    margin-left: 61px;
+}
+
+.sec {
+    margin-top: 22px;
+    margin-left: 57px;
+}
+
+.timer {
+    color: #fff;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    margin-left: 35px;
+}
+
+.button_again {
+    box-sizing: border-box;
+    background-color: #7ac100;
+    color: #fff;
+    width: 246px;
+    height: 50px;
+    border: none;
+    border-radius: 12px;
+    font-size: 24px;
+    line-height: 32px;
+    margin-right: 23px;
+    margin-top: 52px;
+}
+
+.cards_first {
+    margin-left: 26px;
+    margin-top: 35px;
+    margin-right: 23px;
+    margin-bottom: 15px;
+}
+
+.cards {
+    margin-left: 26px;
+    margin-right: 23px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.card_row {
+    display: flex;
+    gap: 15px;
+}
+
+.cards_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
