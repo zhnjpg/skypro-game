@@ -11,6 +11,8 @@
     },
     "scripts": {
         "lint:css": "stylelint './**.css'",
-        "format": "prettier —write ."
+        "lint:js": "stylelint './**.js'",
+        "format": "prettier —write .",
+        "start": "http-server"
     }
 }

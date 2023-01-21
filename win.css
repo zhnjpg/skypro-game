@@ -16,63 +16,70 @@ body {
     background-color: #004980;
 }
 
-.body-center {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-.main {
+.div-win {
+    position: fixed;
+    z-index: 9;
+    margin: 20px;
     background-color: #c2f5ff;
     height: 459px;
     width: 480px;
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 158px;
+    margin-left: calc(50% - 240px);
+    margin-top: 229px;
 }
 
-.h1 {
+.win-img {
+    padding-top: 30px;
+    padding-left: 184px;
+}
+
+.win-text {
     color: #004980;
-    text-align: center;
-    font-weight: 400;
     font-size: 40px;
     line-height: 48px;
-    margin-top: 52px;
+    padding-top: 4px;
+    padding-left: 112px;
 }
 
-.d123 {
-    display: flex;
-    gap: 24px;
-}
-
-.button {
-    box-sizing: border-box;
-    width: 98px;
-    height: 98px;
-    background-color: #fff;
+.div-lose {
+    position: fixed;
+    z-index: 9;
+    margin: 20px;
+    background-color: #c2f5ff;
+    height: 459px;
+    width: 480px;
     border-radius: 12px;
-    border: none;
-    margin-top: 48px;
-    color: #0080c1;
-    font-weight: 97px;
-    font-size: 64px;
-    line-height: 72px;
+    margin-left: calc(50% - 240px);
+    margin-top: 229px;
 }
 
-.button-start {
-    box-sizing: border-box;
-    background-color: #7ac100;
-    width: 246px;
-    height: 50px;
-    border-radius: 12px;
-    border: none;
-    color: #fff;
-    font-weight: 400;
+.lose-img {
+    padding-top: 30px;
+    padding-left: 184px;
+}
+
+.lose-text {
+    color: #004980;
+    font-size: 40px;
+    line-height: 48px;
+    padding-top: 4px;
+    padding-left: 112px;
+}
+
+.time-spent-title {
+    color: #000;
     font-size: 24px;
     line-height: 32px;
-    margin-top: 67px;
+    padding-top: 28px;
+    padding-left: 125px;
+}
+
+.time-spent {
+    color: #000;
+    font-size: 64px;
+    line-height: 72px;
+    padding-top: 10px;
+    padding-left: 163px;
 }
 
 .screen2-hat {
@@ -123,6 +130,26 @@ body {
     margin-top: 52px;
 }
 
+.button-again-win {
+    box-sizing: border-box;
+    background-color: #7ac100;
+    color: #fff;
+    width: 246px;
+    height: 50px;
+    border: none;
+    border-radius: 12px;
+    font-size: 24px;
+    line-height: 32px;
+    margin-top: 40px;
+    margin-left: 117px;
+}
+
+.main-div-win {
+    opacity: 0.6;
+    background: #004980;
+    height: ;
+}
+
 .cards-first {
     margin: 35px 23px 15px 26px;
 }
@@ -140,4 +167,5 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: -1;
 }
