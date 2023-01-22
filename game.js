@@ -1,3 +1,7 @@
+import './index.css'
+import './cards.js'
+import './difficulty.js'
+import './index.js'
 var row = document.querySelector('.row1')
 var size = 0
 var rowsize = 0
@@ -44,8 +48,8 @@ var card1 = null
 var card2 = null
 var opened_cards = 0
 
-var seconds = 00
-var minutes = 00
+var seconds = 0
+var minutes = 0
 var appendMinutes = document.getElementById('minutes')
 var appendSeconds = document.getElementById('seconds')
 var Interval

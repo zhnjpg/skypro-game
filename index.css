@@ -7,8 +7,8 @@
     font-style: normal;
     font-weight: 400;
     src: local('Stratos'),
-        url('/Web Fonts/stratosskyengweb-black') format('woff2'),
-        url('/Web Fonts/stratosskyengweb-black') format('woff');
+        url('Stratos/Web fonts/stratosskyengweb-black.woff2') format('woff2'),
+        url('Stratos/Web Fonts/stratosskyengweb-black.woff') format('woff');
 }
 
 body {
