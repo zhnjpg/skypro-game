@@ -100,6 +100,10 @@ body {
     margin-left: 117px;
 }
 
+.button-again-win:hover {
+    background-color: #6ba705;
+}
+
 .div-win {
     position: fixed;
     z-index: 9;
@@ -109,7 +113,7 @@ body {
     width: 480px;
     border-radius: 12px;
     margin-left: calc(50% - 240px);
-    margin-top: 229px;
+    margin-top: 100px;
 }
 
 .body-center {
@@ -157,6 +161,10 @@ body {
     line-height: 72px;
 }
 
+.button:focus {
+    background-color: rgb(228, 220, 220);
+}
+
 .button-start {
     box-sizing: border-box;
     background-color: #7ac100;
@@ -169,6 +177,10 @@ body {
     font-size: 24px;
     line-height: 32px;
     margin-top: 67px;
+}
+
+.button-start:hover {
+    background-color: #6ba705;
 }
 
 .screen2-hat {
@@ -217,6 +229,10 @@ body {
     line-height: 32px;
     margin-right: 23px;
     margin-top: 52px;
+}
+
+.button-again:hover {
+    background-color: #6ba705;
 }
 
 .cards-first {
