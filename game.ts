@@ -74,8 +74,8 @@ function startTimer() {
     }
 }
 
-let card1: HTMLElement = document.querySelector('body') as HTMLElement
-let card2: HTMLElement = document.querySelector('body') as HTMLElement
+let card1: HTMLElement = document.querySelector('button') as HTMLElement
+let card2: HTMLElement = document.querySelector('button') as HTMLElement
 
 setTimeout(function () {
     cards.forEach((card) => {
