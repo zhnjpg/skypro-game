@@ -5,8 +5,10 @@ const mode =
     process.env.NODE_ENV === 'production' ? 'production' : 'development'
 
 module.exports = {
-    entry: './game.ts',
-    mode,
+    entry: {
+        start: ['./difficulty.ts', './index.ts'],
+        game: ['./cards.ts', './game.ts', './index.ts'],
+    },
     module: {
         rules: [
             { test: /\.css$/, use: ['style-loader', 'css-loader'] },
@@ -16,8 +18,11 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+                test: /\.svg/,
+                use: {
+                    loader: 'svg-url-loader',
+                    options: {},
+                },
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -25,6 +30,7 @@ module.exports = {
             },
         ],
     },
+    mode: mode,
     resolve: {
         extensions: ['.ts', '.js'],
     },
@@ -34,7 +40,22 @@ module.exports = {
             : 'source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
+        filename: '[name].js',
     },
-    plugins: [new HtmlWebpackPlugin({ template: 'index.html' })],
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: 'index.html',
+            chunks: ['start'],
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'game.html',
+            template: 'game.html',
+            chunks: ['game'],
+        }),
+    ],
+    performance: {
+        maxAssetSize: 4000000,
+        maxEntrypointSize: 4000000,
+    },
 }

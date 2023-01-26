@@ -1,6 +1,8 @@
-var row = document.querySelector('.row1')
-var size = 0
-var rowsize = 0
+import './index.css'
+import { cardArr } from './cards'
+let row = document.querySelector('.row1')
+let size = 0
+let rowsize = 0
 const shuffledcards = cardArr.sort(() => 0.5 - Math.random())
 switch (localStorage.getItem('difficulty')) {
     case '1':
@@ -20,8 +22,8 @@ switch (localStorage.getItem('difficulty')) {
 let selected = shuffledcards.slice(38 - size / 2)
 selected = selected.concat(selected.slice(0))
 selected.sort(() => 0.5 - Math.random())
-var i = 1
-var currow = 1
+let i = 1
+let currow = 1
 
 selected.forEach((element) => {
     const div = document.createElement('div')
@@ -41,14 +43,13 @@ selected.forEach((element) => {
     }
 })
 const cards = document.querySelectorAll('.card')
-var card1: HTMLElement
-var card2: HTMLElement
-var opened_cards = 0
 
-var seconds = 0
-var minutes = 0
-var appendMinutes = document.getElementById('minutes')
-var appendSeconds = document.getElementById('seconds')
+let opened_cards = 0
+
+let seconds = 0
+let minutes = 0
+let appendMinutes = document.getElementById('minutes')
+let appendSeconds = document.getElementById('seconds')
 
 function startTimer() {
     seconds++
@@ -73,15 +74,17 @@ function startTimer() {
     }
 }
 
+let card1: HTMLElement = document.querySelector('body') as HTMLElement
+let card2: HTMLElement = document.querySelector('body') as HTMLElement
+
 setTimeout(function () {
     cards.forEach((card) => {
-        card.querySelector('img')!.src = 'img/рубашка.svg'
+        card.querySelector('img')!.src = require('./img/back.svg')
     })
 
-    var Interval = setInterval(startTimer, 1000)
+    let Interval = setInterval(startTimer, 1000)
     cards.forEach((card) => {
         card.addEventListener('click', function (event) {
-            console.log(card.querySelector('img')!.src)
             if (card instanceof HTMLElement) {
                 card.querySelector('img')!.src = cardArr.find(
                     (element) =>
@@ -89,28 +92,31 @@ setTimeout(function () {
                         element.suit === card.dataset.suit
                 )!.src
             }
-
-            if (card1.dataset.rang === '0') card1 = card as HTMLElement
+            if (!card1.hasAttribute('data-rang') || card1.dataset.rang === '0')
+                card1 = card as HTMLElement
             else {
                 card2 = card as HTMLElement
-                console.log(card1)
-                console.log(card2)
 
                 if (
-                    card1.dataset.rang !== card2.dataset.rang ||
-                    card1.dataset.suit !== card2.dataset.suit
+                    card1 instanceof HTMLElement ||
+                    card2 instanceof HTMLElement
                 ) {
-                    setTimeout(generateLoseMsg, 10)
-                    clearInterval(Interval)
-                }
+                    if (
+                        card1.dataset.rang !== card2.dataset.rang ||
+                        card1.dataset.suit !== card2.dataset.suit
+                    ) {
+                        setTimeout(generateLoseMsg, 10)
+                        clearInterval(Interval)
+                    }
 
-                opened_cards += 2
-                if (opened_cards == size) {
-                    setTimeout(generateWinMsg, 10)
-                    clearInterval(Interval)
+                    opened_cards += 2
+                    if (opened_cards == size) {
+                        setTimeout(generateWinMsg, 10)
+                        clearInterval(Interval)
+                    }
+                    card1.dataset.rang = '0'
+                    card2.dataset.rang = '0'
                 }
-                card1.dataset.rang = '0'
-                card2.dataset.rang = '0'
             }
         })
     })
@@ -121,7 +127,7 @@ function generateWinMsg() {
     windiv.classList.add('div-win')
     document.body.insertBefore(windiv, document.querySelector('.cards-div'))
     const winimg = document.createElement('img')
-    winimg.src = 'img/celebrate.svg'
+    winimg.src = require('./img/celebrate.svg')
     winimg.classList.add('win-img')
     windiv.appendChild(winimg)
     const winh3 = document.createElement('h3')
@@ -152,7 +158,7 @@ function generateLoseMsg() {
     windiv.classList.add('div-win')
     document.body.insertBefore(windiv, document.querySelector('.cards-div'))
     const winimg = document.createElement('img')
-    winimg.src = 'img/lose.svg'
+    winimg.src = require('./img/lose.svg')
     winimg.classList.add('win-img')
     windiv.appendChild(winimg)
     const winh3 = document.createElement('h3')

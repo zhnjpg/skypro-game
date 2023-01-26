@@ -1,3 +1,4 @@
+import '/index.css'
 document.querySelector('.b1')!.addEventListener('click', () => {
     window.difficulty = 1
     localStorage.setItem('difficulty', window.difficulty)
