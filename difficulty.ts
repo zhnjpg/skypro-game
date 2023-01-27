@@ -1,18 +1,12 @@
 import '/index.css'
 document.querySelector('.b1')!.addEventListener('click', () => {
-    window.difficulty = 1
-    localStorage.setItem('difficulty', window.difficulty)
-    console.log(window.difficulty)
+    localStorage.setItem('difficulty', '1')
 })
 
 document.querySelector('.b2')!.addEventListener('click', () => {
-    window.difficulty = 2
-    localStorage.setItem('difficulty', window.difficulty)
-    console.log(window.difficulty)
+    localStorage.setItem('difficulty', '2')
 })
 
 document.querySelector('.b3')!.addEventListener('click', () => {
-    window.difficulty = 3
-    localStorage.setItem('difficulty', window.difficulty)
-    console.log(window.difficulty)
+    localStorage.setItem('difficulty', '3')
 })

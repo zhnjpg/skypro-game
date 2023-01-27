@@ -3,25 +3,31 @@ import { cardArr } from './cards'
 let row = document.querySelector('.row1')
 let size = 0
 let rowsize = 0
-const shuffledcards = cardArr.sort(() => 0.5 - Math.random())
-switch (localStorage.getItem('difficulty')) {
-    case '1':
-        size = 6
-        rowsize = 2
-        break
-    case '2':
-        size = 12
-        rowsize = 4
-        break
-    case '3':
-        size = 18
-        rowsize = 6
-        break
+export function shuffleDeck() {
+    const shuffledcards = cardArr.sort(() => 0.5 - Math.random())
+    switch (localStorage.getItem('difficulty')) {
+        case '1':
+            size = 6
+            rowsize = 2
+            break
+        case '2':
+            size = 12
+            rowsize = 4
+            break
+        case '3':
+            size = 18
+            rowsize = 6
+            break
+    }
+
+    let shuffledcut = shuffledcards.slice(38 - size / 2)
+    shuffledcut = shuffledcut.concat(shuffledcut.slice(0))
+    shuffledcut.sort(() => 0.5 - Math.random())
+    return shuffledcut
 }
 
-let selected = shuffledcards.slice(38 - size / 2)
-selected = selected.concat(selected.slice(0))
-selected.sort(() => 0.5 - Math.random())
+let selected = shuffleDeck()
+
 let i = 1
 let currow = 1
 
@@ -63,7 +69,6 @@ function startTimer() {
     }
 
     if (seconds > 59) {
-        console.log('minutes')
         minutes++
         appendMinutes!.innerHTML = '0' + minutes
         seconds = 0
@@ -97,26 +102,18 @@ setTimeout(function () {
             else {
                 card2 = card as HTMLElement
 
-                if (
-                    card1 instanceof HTMLElement ||
-                    card2 instanceof HTMLElement
-                ) {
-                    if (
-                        card1.dataset.rang !== card2.dataset.rang ||
-                        card1.dataset.suit !== card2.dataset.suit
-                    ) {
-                        setTimeout(generateLoseMsg, 10)
-                        clearInterval(Interval)
-                    }
-
-                    opened_cards += 2
-                    if (opened_cards == size) {
-                        setTimeout(generateWinMsg, 10)
-                        clearInterval(Interval)
-                    }
-                    card1.dataset.rang = '0'
-                    card2.dataset.rang = '0'
+                if (!checkPair(card1, card2)) {
+                    setTimeout(generateLoseMsg, 10)
+                    clearInterval(Interval)
                 }
+
+                opened_cards += 2
+                if (opened_cards == size) {
+                    setTimeout(generateWinMsg, 10)
+                    clearInterval(Interval)
+                }
+                card1.dataset.rang = '0'
+                card2.dataset.rang = '0'
             }
         })
     })
@@ -182,4 +179,13 @@ function generateLoseMsg() {
     windiv.appendChild(winh2)
     windiv.appendChild(divhref)
     divhref.appendChild(divbut)
+}
+
+export function checkPair(card1: HTMLElement, card2: HTMLElement) {
+    if (
+        card1.dataset.rang !== card2.dataset.rang ||
+        card1.dataset.suit !== card2.dataset.suit
+    )
+        return false
+    else return true
 }
